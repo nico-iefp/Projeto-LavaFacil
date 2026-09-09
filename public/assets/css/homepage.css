@@ -1,0 +1,401 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #222;
+    font-weight: 700;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: #0d6efd;
+}
+
+.login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #42b6ff, #0d6efd, #00c2ff);
+}
+
+.login-card {
+    width: 520px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .20);
+    padding: 25px 35px;
+    text-align: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #55d6ff, #0d6efd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 45px;
+    box-shadow: 0 0 25px rgba(13, 110, 253, .35);
+}
+
+.mb-4 {
+    margin-bottom: 15px !important;
+}
+
+.input-group {
+    height: 48px;
+}
+
+.input-group-text {
+    width: 50px;
+    background: #eef8ff;
+    border: none;
+    color: #0d6efd;
+    justify-content: center;
+}
+
+.form-control {
+    border: none;
+    background: #eef8ff;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, .2);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-login {
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #00b4ff, #0d6efd);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* NAVBAR */
+
+.navbar {
+
+    transition: .4s;
+
+    padding: 20px 0;
+
+    background: #fcfdff3d;
+
+    backdrop-filter: blur(15px);
+
+}
+
+.navbar-brand {
+
+    font-size: 30px;
+
+    color: white !important;
+
+}
+
+.nav-link {
+
+    color: white !important;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.nav-link:hover {
+
+    color: #dff6ff !important;
+
+}
+
+.navbar .btn {
+
+    font-weight: bold;
+
+}
+
+/* CARDS SERVIÇOS */
+
+.service-card {
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    transition: .4s;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    height: 100%;
+
+}
+
+.service-card:hover {
+
+    transform: translateY(-12px);
+
+    box-shadow: 0 20px 45px rgba(13, 110, 253, .25);
+
+}
+
+.service-card .icon {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(180deg, #6fd6ff, #0d6efd);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto;
+
+    color: white;
+
+    font-size: 40px;
+
+    margin-bottom: 25px;
+
+}
+
+.service-card h4 {
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+
+}
+
+.service-card p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* COMO FUNCIONA */
+
+.step {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto 20px;
+    font-size: 20px;
+    box-shadow: 0 10px 22px rgba(13, 110, 253, .20);
+}
+
+.step h5 {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.step .display-4 {
+    transition: var(--transition);
+}
+
+.step:hover .display-4 {
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+
+.footer {
+
+    background: #216ac3;
+
+    color: white;
+
+    padding: 70px 0 25px;
+
+}
+
+.footer h3,
+.footer h5 {
+
+    margin-bottom: 20px;
+
+}
+
+.footer ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+.footer ul li {
+
+    margin-bottom: 12px;
+
+}
+
+.footer ul li a {
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+.footer ul li a:hover {
+
+    color: #4fc3ff;
+
+}
+
+.social {
+
+    font-size: 28px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.social:hover {
+
+    color: #4fc3ff;
+
+    transform: translateY(-5px);
+
+}
+
+/* ACCORDION */
+
+.accordion-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Force accordion headers (buttons) to be bold whether expanded or collapsed */
+#myCenteredAccordion .accordion-button {
+    font-weight: 700 !important;
+    /* Bold Title */
+}
+
+/* Ensure the description remains normal weight */
+#myCenteredAccordion .accordion-body {
+    font-weight: 400 !important;
+    /* Regular Description */
+}
+
+
+/* TESTEMUNHOS */
+
+.testimonial {
+
+    background: #fff;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    transition: .35s;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+    height: 100%;
+
+}
+
+.testimonial:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(13, 110, 253, .20);
+
+}
+
+.testimonial-img {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-bottom: 20px;
+
+    border: 5px solid #0d6efd;
+
+}
+
+.stars {
+
+    color: #ffc107;
+
+    font-size: 22px;
+
+    margin: 10px 0;
+
+}
+
+/* MAP */
+
+#map {
+    height: 400px;
+    width: 50%;
+    cursor: pointer;
+    /* Visual cue that the map is clickable */
+}
+
+.active-map {
+    cursor: crosshair !important;
+    /* Visual cue when map is activated */
+}
