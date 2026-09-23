@@ -20,7 +20,7 @@
 <?php include ('app/views/layouts/public_navbar.php'); ?>
 
     <!-- HERO -->
-    <section class="py-5" style="background-color: #0D6EFDFF;">
+    <section class="py-5" style="background-color: rgb(45, 49, 54);">
         <div class="container text-center text-white">
             <h1 class="display-5 fw-bold">Sobre Nós</h1>
         </div>
@@ -198,7 +198,118 @@
         </div>
     </section>
 
-<?php include ('app/views/layouts/public_footer.php'); ?>
+<footer class="footer">
+
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="col-lg-4">
+
+            <h3>
+                <i class="bi bi-droplet-half"></i>
+                Lava Fácil
+            </h3>
+
+            <p>
+                A forma mais rápida de tratar da sua roupa.
+            </p>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <h5>
+                Links
+            </h5>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#servicos">
+                        Serviços
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contactos">
+                        Contactos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sing-up.html">
+                        Criar conta
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <h5>
+                Redes Sociais
+            </h5>
+
+            <div class="social-links">
+
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="text-decoration-none">
+
+                    <i class="bi bi-facebook social"></i>
+
+                </a>
+
+                
+
+                <a
+                    href="#"
+                    aria-label="WhatsApp"
+                    class="text-decoration-none">
+
+                    <i class="bi bi-whatsapp social"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <div class="text-center">
+
+        © 2026 Lava Fácil - Todos os direitos reservados.
+
+    </div>
+
+</div>
+
+</footer>
+
 
 </body>
 
