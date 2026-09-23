@@ -1,45 +1,16 @@
+
+
 <?php
-/* public/index.php
+session_start();
 
-// 1. Get the URL the user is trying to visit
-$route = $_GET['route'] ?? 'home';
-
-// 2. Decide what to show based on the URL
-switch ($route) {
-    // --- STATIC PUBLIC PAGES ---
-    case 'home':
-        // Just look inside the views folder and show the plain page
-        include '../app/views/home/home.php'; 
-        break;
-
-    case 'about':
-        include '../app/views/home/about.php';
-        break;
-
-    // --- SECURE/DYNAMIC PAGES ---
-    case 'customer-login':
-        // Call your controller to handle the database login
-        require_once '../app/controllers/CustomerController.php';
-        $controller = new CustomerController();
-        $controller->login();
-        break;
-
-    case 'employee-dashboard':
-        // Call your controller to load AdminLTE 4
-        require_once '../app/controllers/EmployeeController.php';
-        $controller = new EmployeeController();
-        $controller->dashboard();
-        break;
-
-    default:
-        echo "404 Page Not Found";
-        break;
-}*/
-
+$logado  = isset($_SESSION['user_id']);
+$isAdmin = $logado && $_SESSION['role'] === 'admin';
+$nome    = $_SESSION['nome'] ?? '';
 ?>
 
-<!DOCTYPE html>
 
+
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8" />
@@ -57,6 +28,7 @@ switch ($route) {
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
 </head>
+
 
 <body>
     <?php include('app/views/layouts/public_navbar.php'); ?>
@@ -107,163 +79,201 @@ switch ($route) {
         </div>
 
     </header>
+<!-- ==================== SERVIÇOS ==================== -->
 
-    <section id="nossos_servicos">
-        <div class="container">
+<section id="servicos" class="py-5 bg-light">
 
-            <div class="text-center my-5">
+<div class="container">
 
-                <h2 class="fw-bold display-5">
-                    Os nossos serviços
-                </h2>
+    <div class="text-center mb-5" data-aos="fade-up">
 
-            </div>
+        <h2 class="fw-bold display-5">
+            Os nossos serviços
+        </h2>
+
+        <p class="text-muted">
+            Tratamos da sua roupa com todo o cuidado.
+        </p>
+
+    </div>
 
 
-            <div class="row g-4">
+    <div class="row g-4">
 
-                <!-- LAVAGEM -->
 
-                <div class="col-lg-4 col-md-6">
+        <!-- LAVAGEM (cod_tiposervico = 1) -->
 
-                    <div class="service-card">
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in">
 
-                        <div class="icon">
-                            <i class="bi bi-droplet"></i>
-                        </div>
+            <div class="service-card">
 
-                        <h4>
-                            Lavagem
-                        </h4>
-
-                        <p>
-                            Lavagem profissional para toda a roupa do dia-a-dia.
-                        </p>
-
-                    </div>
-
+                <div class="icon">
+                    <i class="bi bi-droplet"></i>
                 </div>
 
+                <h4>
+                    Lavagem
+                </h4>
 
-                <!-- SECAGEM -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="icon">
-                            <i class="bi bi-fan"></i>
-                        </div>
-
-                        <h4>
-                            Secagem
-                        </h4>
-
-                        <p>
-                            Secagem cuidada para camisas, calças,
-                            vestidos e muito mais.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSAR A FERRO -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="icon">
-                            <i class="bi bi-thermometer-high"></i>
-                        </div>
-
-                        <h4>
-                            Passar a ferro
-                        </h4>
-
-                        <p>
-                            Ideal para fatos, vestidos e roupa delicada.
-                        </p>
-                    </div>
-                </div>
-
-
-                <!-- LAVAGEM + SECAGEM -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="icon">
-                            <i class="bi bi-wind"></i>
-                        </div>
-
-                        <h4>
-                            Lavagem + Secagem
-                        </h4>
-
-                        <p>
-                            Um serviço completo para deixar a sua roupa
-                            limpa e pronta a usar.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- LAVAGEM + SECAGEM + FERRO -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="icon">
-                            <i class="bi bi-layers"></i>
-                        </div>
-
-                        <h4>
-                            Lavagem + Secagem + Ferro
-                        </h4>
-
-                        <p>
-                            O serviço completo para quem procura
-                            praticidade e comodidade.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PACKS -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="icon">
-                            <i class="bi bi-boxes"></i>
-                        </div>
-
-                        <h4>
-                            Packs
-                        </h4>
-
-                        <p>
-                            Escolha um dos nossos packs mensais
-                            e simplifique o cuidado da sua roupa.
-                        </p>
-
-                    </div>
-
-                </div>
+                <p>
+                    Lavagem profissional para toda a roupa do dia-a-dia.
+                </p>
 
             </div>
 
         </div>
-    </section>
+
+
+        <!-- SECAGEM (cod_tiposervico = 2) -->
+
+        <div
+            class="col-lg-4 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="200">
+
+            <div class="service-card">
+
+                <div class="icon">
+                    <i class="bi bi-fan"></i>
+                </div>
+
+                <h4>
+                    Secagem
+                </h4>
+
+                <p>
+                    Secagem cuidada para camisas, calças,
+                    vestidos e muito mais.
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- PASSAR A FERRO / ENGOMADORIA (cod_tiposervico = 3) -->
+
+        <div
+            class="col-lg-4 col-md-6"
+            data-aos="zoom-in">
+
+            <div class="service-card">
+
+                <div class="icon">
+                    <i class="bi bi-thermometer-high"></i>
+                </div>
+
+                <h4>
+                    Passar a ferro
+                </h4>
+
+                <p>
+                    Ideal para fatos, vestidos e roupa delicada.
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- LAVAGEM + SECAGEM (cod_tiposervico = 6) -->
+
+        <div
+            class="col-lg-4 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="100">
+
+            <div class="service-card">
+
+                <div class="icon">
+                    <i class="bi bi-wind"></i>
+                </div>
+
+                <h4>
+                    Lavagem + Secagem
+                </h4>
+
+                <p>
+                    Um serviço completo para deixar a sua roupa
+                    limpa e pronta a usar.
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- LAVAGEM + SECAGEM + FERRO (cod_tiposervico = 7) -->
+
+        <div
+            class="col-lg-4 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="100">
+
+            <div class="service-card">
+
+                <div class="icon">
+                    <i class="bi bi-layers"></i>
+                </div>
+
+                <h4>
+                    Lavagem + Secagem + Ferro
+                </h4>
+
+                <p>
+                    O serviço completo para quem procura
+                    praticidade e comodidade.
+                </p>
+
+              
+
+            </div>
+
+        </div>
+
+
+        <!-- PACKS: 3 planos mensais (cod_tiposervico 8, 9, 10) — não dá
+             para ir direto a um único agendar.php?id=X, por isso aponta
+             para uma mini-página só com esses 3 packs. -->
+
+        <div
+            class="col-lg-4 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="100">
+
+            <div class="service-card">
+
+                <div class="icon">
+                    <i class="bi bi-boxes"></i>
+                </div>
+
+                <h4>
+                    Packs
+                </h4>
+
+                <p>
+                    Escolha um dos nossos packs mensais
+                    e simplifique o cuidado da sua roupa.
+                </p>
+
+               
+
+            </div>
+
+        </div>
+
+    </div>
+<br>
+</div>
+ <div class="d-grid gap-2 col-2 mx-auto">
+  <button class="btn btn-primary" type="button"onclick="window.location.href='login.html'">Agendar</button>
+ 
+ </div>
+
+</section>
 
     <!--  COMO FUNCIONA  -->
 
@@ -298,7 +308,7 @@ switch ($route) {
                         <i class="bi bi-phone display-4 text-primary"></i>
 
                         <h5 class="mt-3">
-                            Faz a marcação
+                            Faz o agendamento
                         </h5>
 
                     </div>
@@ -317,7 +327,7 @@ switch ($route) {
                         <i class="bi bi-truck display-4 text-primary"></i>
 
                         <h5 class="mt-3">
-                            Recolhemos
+                            Recolhemos 
                         </h5>
 
                     </div>
@@ -355,7 +365,7 @@ switch ($route) {
                         <i class="bi bi-house-check-fill display-4 text-primary"></i>
 
                         <h5 class="mt-3">
-                            Entregamos
+                            Entregamos 
                         </h5>
 
                     </div>
@@ -387,11 +397,15 @@ switch ($route) {
 
                     <div class="testimonial">
 
-                        <img src="" class="testimonial-img" alt="Mario Santos" loading="lazy">
+                       <img
+                    src="img/Camila Aurora Machado.PNG"
+                    class="testimonial-img"
+                    alt="Mario Santos"
+                    loading="lazy">
 
-                        <h5>
-                            Mario Santos
-                        </h5>
+                <h5>
+                    Camila Machado
+                </h5>
 
                         <div class="stars" aria-label="5 estrelas">
                             ★★★★★
@@ -410,10 +424,14 @@ switch ($route) {
 
                     <div class="testimonial">
 
-                        <img src="" class="testimonial-img" alt="Joana Costa" loading="lazy">
+                         <img
+                    src="img/Isadora Vênus Albuquerque.PNG"
+                    class="testimonial-img"
+                    alt="Mario Santos"
+                    loading="lazy">
 
                         <h5>
-                            Joana Costa
+                           Isadora Alburquerque
                         </h5>
 
                         <div class="stars" aria-label="5 estrelas">
@@ -458,62 +476,365 @@ switch ($route) {
 
     </section>
 
-    <!-- ACCORDION -->
+<!-- ACCORDION -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
 
-    <section>
-        <div class="accordion-wrapper d-flex justify-content-center align-items-center vh-100">
-            <div class="accordion w-50" id="myCenteredAccordion">
-                <h2>FAQ</h2>
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Pergunta #1
-                        </button>
-                    </h3>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlush">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                            demonstrate
-                            the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Pergunta #2
-                        </button>
-                    </h3>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlush">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                            demonstrate
-                            the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's
-                            imagine
-                            this being filled with some actual content.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseThree" aria-expanded="false"
-                            aria-controls="flush-collapseThree">
-                            Até que distância fazem entregas?
-                        </button>
-                    </h3>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlush">
-                        <div class="accordion-body"> Entregamos ...
+                <h2 class="mb-4">FAQ</h2>
+
+                <div class="accordion" id="faqAccordion">
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq-heading-1">
+                            <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faq-collapse-1"
+                                aria-expanded="false" aria-controls="faq-collapse-1">
+                                E se alguma peça ficar danificada?
+                            </button>
+                        </h3>
+                        <div id="faq-collapse-1" class="accordion-collapse collapse"
+                            aria-labelledby="faq-heading-1" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Embora tenhamos todo o cuidado no tratamento das suas peças, reconhecemos que podem ocorrer imprevistos. Caso isso aconteça, oferecemos um crédito em serviços no valor aproximado da peça danificada, ou, em alternativa, o reembolso do valor correspondente, consoante a preferência do cliente.
+                            </div>
                         </div>
                     </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq-heading-2">
+                            <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faq-collapse-2"
+                                aria-expanded="false" aria-controls="faq-collapse-2">
+                                Como faço o pagamento?
+                            </button>
+                        </h3>
+                        <div id="faq-collapse-2" class="accordion-collapse collapse"
+                            aria-labelledby="faq-heading-2" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Aceitamos pagamento em numerário, MB Way e multibanco, e pode ser feito no momento da entrega ou através do site.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq-heading-3">
+                            <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faq-collapse-3"
+                                aria-expanded="false" aria-controls="faq-collapse-3">
+                                Qual é o prazo de entrega?
+                            </button>
+                        </h3>
+                        <div id="faq-collapse-3" class="accordion-collapse collapse"
+                            aria-labelledby="faq-heading-3" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Normalmente entre 24 a 48 horas após a recolha, dependendo do tipo de serviço.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq-heading-4">
+                            <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faq-collapse-4"
+                                aria-expanded="false" aria-controls="faq-collapse-4">
+                                Como sei que a minha roupa não se vai misturar com a de outros clientes?
+                            </button>
+                        </h3>
+                        <div id="faq-collapse-4" class="accordion-collapse collapse"
+                            aria-labelledby="faq-heading-4" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Cada encomenda é identificada individualmente com etiqueta própria desde a recolha até à entrega, garantindo que recebe exatamente as suas peças.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-    </section>
+        </div>
+    </div>
+</section>
 
-    <section style="display: flex; justify-content: center; margin-bottom: 1%;">
-        <div id="map" style="height: 400px; width: 50%; "></div>
-    </section>
+<!-- Mantenha apenas uma secção do mapa -->
+<section style="display: flex; justify-content: center; margin-bottom: 3%;">
+    <div id="map" style="height: 400px; width: 50%;"></div>
+</section>
+
+    <!-- ==================== CONTACTOS ==================== -->
+
+<section id="contactos" class="contact-section">
+
+<div class="container">
+
+    <div class="row align-items-center">
 
 
-    <?php include('app/views/layouts/public_footer.php'); ?>
+        <div class="col-lg-6">
+
+            <h2 class="display-5 fw-bold">
+                Fale connosco
+            </h2>
+
+            <p>
+                Estamos disponíveis para esclarecer
+                qualquer dúvida.
+            </p>
+
+
+            <div class="contact-item">
+
+                <i class="bi bi-telephone-fill"></i>
+
+                <a
+                    href="tel:+351266742593"
+                    class="text-decoration-none">
+
+                    266 742 593
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <i class="bi bi-envelope-fill"></i>
+
+                <a
+                    href="mailto:LavaFácil.pt@gmail.com"
+                    class="text-decoration-none">
+
+                    LavaFácil.pt@gmail.com
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                <span>
+                    Edifício Start-up Montemor-o-Novo,
+                    situado na Zona Industrial da ADUA,
+                    Lote 38
+                </span>
+
+            </div>
+
+        </div>
+
+<div class="col-lg-6" id="#contactos">
+
+            <!-- Mensagem de feedback (sucesso/erro) -->
+            <div id="contactFeedback" class="alert d-none" role="alert"></div>
+
+            <form
+                id="contactForm"
+                action="contactos.php"
+                method="post"
+                novalidate>
+
+                <div class="mb-3">
+
+                    <label for="nome" class="visually-hidden">
+                        Nome
+                    </label>
+
+                    <input
+                        id="nome"
+                        name="nome"
+                        type="text"
+                        class="form-control"
+                        placeholder="Nome"
+                        autocomplete="name"
+                        required>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label for="email" class="visually-hidden">
+                        Email
+                    </label>
+
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                        autocomplete="email"
+                        required>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label for="mensagem" class="visually-hidden">
+                        Mensagem
+                    </label>
+
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        class="form-control"
+                        rows="5"
+                        placeholder="Mensagem"
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="contactSubmitBtn"
+                    class="btn btn-primary btn-lg w-100">
+
+                    Enviar Mensagem
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+<br>
+
+<script src="assets/js/contactos.js"></script>
+
+<br>
+
+
+<footer class="footer">
+
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="col-lg-4">
+
+            <h3>
+                <i class="bi bi-droplet-half"></i>
+                Lava Fácil
+            </h3>
+
+            <p>
+                A forma mais rápida de tratar da sua roupa.
+            </p>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <h5>
+                Links
+            </h5>
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#servicos">
+                        Serviços
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contactos">
+                        Contactos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sing-up.html">
+                        Criar conta
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <h5>
+                Redes Sociais
+            </h5>
+
+            <div class="social-links">
+
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="text-decoration-none">
+
+                    <i class="bi bi-facebook social"></i>
+
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                    class="text-decoration-none">
+
+                    <i class="bi bi-instagram social"></i>
+
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="WhatsApp"
+                    class="text-decoration-none">
+
+                    <i class="bi bi-whatsapp social"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <div class="text-center">
+
+        © 2026 Lava Fácil - Todos os direitos reservados.
+
+    </div>
+
+</div>
+
+</footer>
+
+
 
     <script src="public/assets/js/scripts.js"></script>
     <script src="public/assets/js/lib/bootstrap.min.js"></script>
@@ -523,5 +844,7 @@ switch ($route) {
     <script src="public/assets/js/mapa.js"></script>
     <script src="public/assets/js/lib/jquery.js"></script>
 </body>
+
+
 
 </html>
