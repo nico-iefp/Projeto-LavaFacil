@@ -95,15 +95,16 @@ foreach ($tipos as $tipo) {
 }
 
 // Função que recebe a configuração de um serviço (preços) e devolve o texto do preço já formatado
+// Função que recebe a configuração de um serviço (preço) e devolve o texto já formatado
 function preco_teaser($cfg) {
-    // Se o serviço for cobrado ao kg, mostramos o preço por Kg
-    if ($cfg['mostrar_kg'] == true) {
-       
-        return number_format($cfg['preco_kg'], 2, ',', '.') . ' € /Kg';
-    } else {
-        // Caso contrário, mostramos o preço fixo
-        return number_format($cfg['preco_fixo'], 2, ',', '.') . ' €';
+    $texto = number_format($cfg['preco'], 2, ',', '.') . ' €';
+
+    // Se houver uma unidade definida (kg, peça, km), acrescenta-a ao texto
+    if (!empty($cfg['unidade'])) {
+        $texto .= '/' . $cfg['unidade'];
     }
+
+    return $texto;
 }
 ?>
 <!DOCTYPE html>

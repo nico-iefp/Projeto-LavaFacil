@@ -3,7 +3,7 @@
 $host    = '127.0.0.1';      
 $db      = 'lavafacil';      
 $user    = 'root';           
-$pass    = 'KiKo_2007..';               
+$pass    = '';               
 $charset = 'utf8mb4';       
 
 // 2. Configuração do DSN (Data Source Name)
